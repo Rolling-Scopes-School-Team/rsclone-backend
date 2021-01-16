@@ -10,6 +10,10 @@ authRouter
   .post(
     "/authuser",
     UsersController.authuser
+  )
+  .get(
+    "/autologin",
+    UsersController.autoLogin
   );
 
 module.exports = authRouter;

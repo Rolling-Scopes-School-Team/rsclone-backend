@@ -55,6 +55,8 @@ class UsersController {
       .catch(err => next(err));
   };
 
+  autoLogin = (req, res, next) => res.send({name: req.user.name, email: req.user.email});
+
 }
 
 module.exports = new UsersController();
