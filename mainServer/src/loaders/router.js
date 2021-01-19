@@ -1,4 +1,6 @@
 const authRouter = require("../routes/authRouter");
+const gameRouter = require("../routes/gameRouter");
+
 
 class Router {
   constructor(app) {
@@ -7,6 +9,7 @@ class Router {
 
   init = () => {
     this.app.use("/auth", authRouter);
+    this.app.use("/game", gameRouter);
   };
 } 
 

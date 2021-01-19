@@ -13,8 +13,7 @@ class UserServices {
   
 
   authorization = async req => {
-    const checkLogin = true;
-
+  
     const authUser = {
       name: req.user.name,
       email: req.user.email
