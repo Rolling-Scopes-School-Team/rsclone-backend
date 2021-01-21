@@ -5,7 +5,7 @@ const express = require("express"),
   http = require("http"),
   Chat = require("./src/chat/chat");
 
-var app = express();
+const app = express();
 
 const server = http.createServer(app);
 

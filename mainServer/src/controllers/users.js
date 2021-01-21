@@ -43,7 +43,7 @@ class UsersController {
         }
 
         return Users.authorization(req, res).then(data => {
-          return res.send(data);
+          return res.send({user: data});
         });
       });
     })(req, res, next);
@@ -51,11 +51,11 @@ class UsersController {
 
   addUser = (req, res, next) => {
     Users.createUser(req.body)
-      .then((user) => res.send(user))
+      .then((user) => res.send({user}))
       .catch(err => next(err));
   };
 
-  autoLogin = (req, res, next) => res.send({name: req.user.name, email: req.user.email});
+  autoLogin = (req, res, next) => res.send({user:{name: req.user.name, email: req.user.email}});
 
 }
 
