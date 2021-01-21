@@ -9,6 +9,12 @@ class GameController {
       .catch(err => next(err));
   };
 
+  getRooms = (req, res, next) => {
+    gameRep.getRooms()
+      .then((rooms) => res.send({rooms}))
+      .catch(err => next(err));
+  };
+
 }
 
 module.exports = new GameController();
