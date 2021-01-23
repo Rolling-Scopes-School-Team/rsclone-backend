@@ -9,5 +9,10 @@ gameRouter
     authenticationMiddleware,
     GameController.createRoom
   )
+  .get(
+    "/getRooms",
+    authenticationMiddleware,
+    GameController.getRooms
+  );
 
 module.exports = gameRouter;

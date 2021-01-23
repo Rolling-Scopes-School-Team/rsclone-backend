@@ -25,6 +25,32 @@ class GameRepository {
       throw new CustomError("undefined error", 400, "Something wrong");
     }
   };
+
+   getRooms = async () => {
+    try {
+    
+
+      const rooms = await models.Room.findAll({
+         attributes: [
+          "name",
+          "size",
+          "fullness",
+          "users"
+        ],
+      });
+
+      
+
+      if (!rooms)
+        throw new CustomError("getRoomsError", 409, "rooms is not available");
+
+      return rooms;
+    } catch (e) {
+      if (e instanceof CustomError) throw e;
+
+      throw new CustomError("undefined error", 400, "Something wrong");
+    }
+  };
 }
 
 module.exports = new GameRepository();
