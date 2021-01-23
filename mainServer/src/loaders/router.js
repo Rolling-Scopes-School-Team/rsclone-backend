@@ -1,6 +1,5 @@
-const authRouter = require("../routes/authRouter");
-const gameRouter = require("../routes/gameRouter");
-
+import authRouter from '../routes/authRouter.js';
+import gameRouter from '../routes/gameRouter.js';
 
 class Router {
   constructor(app) {
@@ -8,9 +7,9 @@ class Router {
   }
 
   init = () => {
-    this.app.use("/auth", authRouter);
-    this.app.use("/game", gameRouter);
+    this.app.use('/auth', authRouter);
+    this.app.use('/game', gameRouter);
   };
-} 
+}
 
-module.exports = Router;
+export default Router;

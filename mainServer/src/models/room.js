@@ -1,7 +1,7 @@
-const sequelize = require("../init/sequelize"),
-  Sequelize = require("sequelize");
+import Sequelize from 'sequelize';
+import { sequelize } from '../init/sequelize.js';
 
-const RoomModel = sequelize.define("room", {
+export const RoomModel = sequelize.define('room', {
   name: {
     type: Sequelize.STRING,
     allowNull: false,
@@ -12,7 +12,6 @@ const RoomModel = sequelize.define("room", {
     allowNull: true,
   },
 
-  
   fullness: {
     type: Sequelize.INTEGER,
     allowNull: true,
@@ -27,6 +26,6 @@ const RoomModel = sequelize.define("room", {
     type: Sequelize.STRING,
     allowNull: false,
   },
-}); 
+});
 
-module.exports = RoomModel;
+export default RoomModel;

@@ -1,5 +1,5 @@
-
-authenticationMiddleware = (req, res, next) => {
+// eslint-disable-next-line consistent-return
+export const authenticationMiddleware = (req, res, next) => {
   if (req.isAuthenticated()) {
     return next();
   }
@@ -7,4 +7,4 @@ authenticationMiddleware = (req, res, next) => {
   res.sendStatus(401);
 };
 
-module.exports = {  authenticationMiddleware };
+export default { authenticationMiddleware };

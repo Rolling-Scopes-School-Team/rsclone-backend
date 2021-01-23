@@ -1,31 +1,23 @@
-const cryptoJs = require("crypto-js"),
-  UserRep = require("../repository/userRepository");
+import cryptoJs from 'crypto-js';
+
+import UserRep from '../repository/userRepository.js';
 
 class UserServices {
-  
-  verifyPassword = pass =>
-    JSON.parse(
-      cryptoJs.AES.decrypt(pass.toString(), process.env.SECRET_KEY).toString(
-        cryptoJs.enc.Utf8
-      )
-    );
+  verifyPassword = (pass) => JSON.parse(
+    cryptoJs.AES.decrypt(pass.toString(), process.env.SECRET_KEY).toString(
+      cryptoJs.enc.Utf8,
+    ),
+  );
 
-  
-
-  authorization = async req => {
-  
+  authorization = async (req) => {
     const authUser = {
       name: req.user.name,
-      email: req.user.email
+      email: req.user.email,
     };
 
     return authUser;
   };
 
-
-  createUser = data => {
-    return UserRep.createUser(data);
-  };
-
+  createUser = (data) => UserRep.createUser(data);
 }
-module.exports = new UserServices();
+export default new UserServices();

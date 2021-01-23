@@ -1,13 +1,11 @@
-const sequelize = require("../init/sequelize"),
-  Sequelize = require("sequelize");
+import Sequelize from 'sequelize';
+import { sequelize } from '../init/sequelize.js';
 
-const UserModel = sequelize.define("user", {
+export const UserModel = sequelize.define('user', {
   name: {
     type: Sequelize.STRING,
     allowNull: false,
   },
-
-  
 
   email: {
     type: Sequelize.STRING,
@@ -19,6 +17,6 @@ const UserModel = sequelize.define("user", {
     type: Sequelize.STRING,
     allowNull: false,
   },
-}); 
+});
 
-module.exports = UserModel;
+export default UserModel;

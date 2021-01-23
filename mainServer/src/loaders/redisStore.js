@@ -1,12 +1,17 @@
-const redis = require("redis");
-const session = require("express-session");
+import redis from 'redis';
 
-let RedisStore = require("connect-redis")(session);
-let redisClient = redis.createClient(6379, "redis");
-sessionStore = new RedisStore({
-  host: "redis",
+import session from 'express-session';
+
+import connectRedis from 'connect-redis';
+
+const RedisStore = connectRedis(session);
+
+const redisClient = redis.createClient(6379, 'redis');
+
+const SessionStore = new RedisStore({
+  host: 'redis',
   port: 6379,
   client: redisClient,
 });
 
-module.exports = sessionStore;
+export default SessionStore;

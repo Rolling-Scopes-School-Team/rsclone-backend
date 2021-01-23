@@ -1,11 +1,18 @@
-const cookieParser = require("cookie-parser"),
-  bodyParser = require("body-parser"),
-  session = require("express-session"),
-  cors = require("cors"),
-  PassportMid = require("../middlewares/passport"),
-  express = require("express"),
-  config = require("../../config"),
-  sessionStore = require("./redisStore");
+import cookieParser from 'cookie-parser';
+
+import bodyParser from 'body-parser';
+
+import session from 'express-session';
+
+import cors from 'cors';
+
+import express from 'express';
+
+import config from '../../config.js';
+
+import PassportMid from '../middlewares/passport.js';
+
+import sessionStore from './redisStore.js';
 
 class AppLoader {
   constructor(app) {
@@ -18,10 +25,10 @@ class AppLoader {
     this.app.use(
       bodyParser.urlencoded({
         extended: false,
-      })
+      }),
     );
 
-    this.app.use("/static", express.static("static"));
+    this.app.use('/static', express.static('static'));
 
     this.app.use(cookieParser());
 
@@ -29,20 +36,19 @@ class AppLoader {
 
     this.app.use(
       session({
-        key: "express.sid",
+        key: 'express.sid',
         store: sessionStore,
         secret: config.secret,
         cookie: { maxAge: 24 * 60 * 60 * 1000, secure: false },
         resave: false,
         saveUninitialized: false,
-      })
+      }),
     );
 
-
-    this.app.use(cors({ origin: "http://localhost:8080", credentials: true }));
+    this.app.use(cors({ origin: 'http://localhost:8080', credentials: true }));
 
     new PassportMid().init();
   };
 }
 
-module.exports = AppLoader;
+export default AppLoader;
