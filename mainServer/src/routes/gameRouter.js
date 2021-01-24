@@ -1,18 +1,19 @@
-const express = require("express"),
-  GameController = require("../controllers/game"),
-  gameRouter = express.Router(),
-  { authenticationMiddleware } = require("../middlewares/auth");
+import express from 'express';
+import GameController from '../controllers/game.js';
+import { authenticationMiddleware } from '../middlewares/auth.js';
+
+const gameRouter = express.Router();
 
 gameRouter
   .post(
-    "/createRoom",
+    '/createRoom',
     authenticationMiddleware,
-    GameController.createRoom
+    GameController.createRoom,
   )
   .get(
-    "/getRooms",
+    '/getRooms',
     authenticationMiddleware,
-    GameController.getRooms
+    GameController.getRooms,
   );
 
-module.exports = gameRouter;
+export default gameRouter;

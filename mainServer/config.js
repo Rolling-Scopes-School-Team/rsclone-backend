@@ -1,4 +1,4 @@
-module.exports = {
+ const config = {
   serverPort: process.env.SERVER_PORT,
   secret: process.env.SESSION_SECRET,
   secretKey: process.env.SECRET_KEY,
@@ -8,3 +8,4 @@ module.exports = {
   hostSQL: process.env.DB_HOST_SQL,
 };
  
+export default config;

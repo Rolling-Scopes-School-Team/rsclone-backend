@@ -1,19 +1,21 @@
-const express = require("express"),
-  UsersController = require("../controllers/users"),
-  authRouter = express.Router();
+import express from 'express';
+
+import UsersController from '../controllers/users.js';
+
+const authRouter = express.Router();
 
 authRouter
   .post(
-    "/create",
-    UsersController.addUser
+    '/create',
+    UsersController.addUser,
   )
   .post(
-    "/authuser",
-    UsersController.authuser
+    '/authuser',
+    UsersController.authuser,
   )
   .get(
-    "/autologin",
-    UsersController.autoLogin
+    '/autologin',
+    UsersController.autoLogin,
   );
 
-module.exports = authRouter;
+export default authRouter;

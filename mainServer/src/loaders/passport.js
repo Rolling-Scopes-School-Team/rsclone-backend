@@ -1,4 +1,4 @@
-const passport = require("passport");
+import passport from 'passport';
 
 class PassportLoader {
   constructor(app) {
@@ -12,4 +12,4 @@ class PassportLoader {
   };
 }
 
-module.exports = PassportLoader;
+export default PassportLoader;

@@ -1,9 +1,9 @@
-const UserModel = require("../models/user");
-const RoomModel = require("../models/room");
-  
+import { UserModel } from '../models/user.js';
+import { RoomModel } from '../models/room.js';
+
 class Models {
   Room = RoomModel;
+
   User = UserModel;
 }
-module.exports = new Models();
-  
+export default new Models();

@@ -1,18 +1,18 @@
-const express = require("express"),
-  db = require("./src/init/dataBaseUtils"),
-  InitLoaders = require("./src/loaders/"),
-  config = require("./config"),
-  http = require("http"),
-  Chat = require("./src/chat/chat");
+import express from 'express';
+import http from 'http';
+import config from './config.js';
+import { setUpConnection } from './src/init/dataBaseUtils.js';
+import InitLoaders from './src/loaders/index.js';
+import Chat from './src/chat/chat.js';
 
 const app = express();
 
-const server = http.createServer(app);
-
+const server = http.createServer(app); 
+ 
 new InitLoaders(app).init();
 
 const connect = async () => {
-  await db.setUpConnection();
+  await setUpConnection();
 
   await server.listen(config.serverPort, () => {
     console.log(`Server run on port ${config.serverPort}`);
@@ -23,4 +23,4 @@ const connect = async () => {
 
 connect();
 
-module.exports = server;
+export default server;

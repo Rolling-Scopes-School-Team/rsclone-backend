@@ -1,7 +1,7 @@
-const Sequelize = require("sequelize"),
-  config = require("../../config");
+import Sequelize from 'sequelize';
+import config from '../../config.js';
 
-const sequelize = new Sequelize(
+export const sequelize = new Sequelize(
   config.dbNameSQL,
 
   config.usernameSQL,
@@ -11,8 +11,8 @@ const sequelize = new Sequelize(
   {
     host: config.hostSQL,
 
-    dialect: "mysql",
-  }
-); 
+    dialect: 'mysql',
+  },
+);
 
-module.exports = sequelize;
+export default { sequelize };

@@ -1,7 +1,10 @@
-const Router = require("./router.js"),
-  AppLoader = require("./appLoader"),
-  PassportLoader = require("./passport"),
-  { errorHandler } = require("../middlewares/errorHandler");
+import Router from './router.js';
+
+import AppLoader from './appLoader.js';
+
+import PassportLoader from './passport.js';
+
+import { errorHandler } from '../middlewares/errorHandler.js';
 
 class InitLoaders {
   constructor(app) {
@@ -19,4 +22,4 @@ class InitLoaders {
   };
 }
 
-module.exports = InitLoaders;
+export default InitLoaders;
